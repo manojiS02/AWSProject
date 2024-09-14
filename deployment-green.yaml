@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coinbase-service-green
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: coinbase-service-green
+  template:
+    metadata:
+      labels:
+        app: coinbase-service-green
+    spec:
+      containers:
+      - name: coinbase-service
+        image: manojisalakshana/coinbase-service:latest
+        ports:
+        - containerPort: 3000
